@@ -48,6 +48,7 @@ public class UserServiceImpl implements UserService {
         return code;
     }
 
+    //首页账号密码登陆
     @Override
     public LoginResponse login(LoginRequest loginRequest) {
         List<User> list = userDao.login(loginRequest.getPhoneNumber(), loginRequest.getPassword());
@@ -65,6 +66,7 @@ public class UserServiceImpl implements UserService {
         return loginResponse;
     }
 
+    //手机验证码登陆
     @Override
     public LoginResponse loginBySms(LoginUserBySmsRequest request) {
         LoginResponse response=new LoginResponse();
@@ -114,6 +116,7 @@ public class UserServiceImpl implements UserService {
         return userDao.deleteUser(userId);
     }
 
+    //注册账号
     @Override
     public Integer addUser(AddUserRequest request) {
         List<User> userByPhone = userDao.findUserByPhone(request.getPhoneNumber());
